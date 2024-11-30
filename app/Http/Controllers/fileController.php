@@ -14,7 +14,6 @@ function fileDownload($invoiceId, $fileType="PDF"){
 
 }    
 function error(){
-
     abort (404);
 }
 }

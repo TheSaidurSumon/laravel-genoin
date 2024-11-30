@@ -14,7 +14,7 @@ function demo1(){
   //  return null";
   //return true;
   //return ['a','b'];
-  return array(["city"=>"dhaka", ])
+  return array(["city"=>"dhaka",  ]);
 }
 
 }

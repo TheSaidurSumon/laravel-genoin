@@ -9,7 +9,7 @@ class invoiceController extends Controller
  
  function invoice(request $request ,$invoiceId){
 
-    if ($request->has ('download');)
+    if ($request->has ('download'));
     return "display invoice";
  }
  

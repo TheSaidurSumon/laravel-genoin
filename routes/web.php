@@ -9,7 +9,12 @@ use App\Http\Controllers\demoController;
 use App\Http\Controllers\imageController;
 use App\Http\Controllers\uploadController;
 use App\Http\Controllers\siteController;
+use App\Http\Controllers\logController;
+use App\Http\Controllers\sessionController;
+use App\Http\Controllers\midController;
+use App\Http\Middleware\DemoMiddleware;
 use Illuminate\Support\Facades\Route;
+
 
 // Route for Register Page
 Route::get('/register', function () {
@@ -60,6 +65,25 @@ Route::get('/home', [siteController::class, 'home'])->name('home');
 Route::get('/menu', [siteController::class, 'menu'])->name('menu');
 Route::get('/about', [siteController::class, 'about'])->name('about');
 Route::get('/reservation', [siteController::class, 'reservation'])->name('reservation');
+
+
+//laravel log history 
+Route::get('/log', [logController::class, 'summation']);
+
+//session
+Route::get('/sessionput', [sessionController::class, 'sessionPut']);
+Route::get('/sessionpull', [sessionController::class, 'sessionPull']);
+Route::get('/sessionget', [sessionController::class, 'sessionGet']);
+Route::get('/sessionforget', [sessionController::class, 'sessionForget']);
+Route::get('/sessionflush', [sessionController::class, 'sessionFlush']);
+
+//middleware 
+
+Route::get('/midware', [midController::class, 'DemoAction'])->middleware([DemoMiddleware::class]);
+Route::get('/midware2', [midController::class, 'DemoAction2']);
+Route::get('/midware3', [midController::class, 'DemoAction3']);
+Route::get('/midware4', [midController::class, 'DemoAction4']);
+Route::get('/midware5', [midController::class, 'DemoAction5']);
 
 
 

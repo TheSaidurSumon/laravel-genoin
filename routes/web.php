@@ -13,6 +13,7 @@ use App\Http\Controllers\logController;
 use App\Http\Controllers\sessionController;
 use App\Http\Controllers\midController;
 use App\Http\Middleware\DemoMiddleware;
+use App\Http\Controllers\viewController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -79,11 +80,25 @@ Route::get('/sessionflush', [sessionController::class, 'sessionFlush']);
 
 //middleware 
 
-Route::get('/midware', [midController::class, 'DemoAction'])->middleware([DemoMiddleware::class]);
-Route::get('/midware2', [midController::class, 'DemoAction2']);
-Route::get('/midware3', [midController::class, 'DemoAction3']);
-Route::get('/midware4', [midController::class, 'DemoAction4']);
-Route::get('/midware5', [midController::class, 'DemoAction5']);
+Route::get('/midware1/{key}', [midController::class, 'DemoAction1'])->middleware([DemoMiddleware::class]);
+Route::get('/midware2/{key}', [midController::class, 'DemoAction2'])->middleware([DemoMiddleware::class]);
+Route::get('/midware3/{key}', [midController::class, 'DemoAction3'])->middleware([DemoMiddleware::class]);
+Route::get('/midware4/{key}', [midController::class, 'DemoAction4'])->middleware([DemoMiddleware::class]);
+
+
+
+Route::middleware(['A','B','C'])->group(function(){
+
+    Route::get('/midware1/{key}', [midController::class, 'DemoAction1']);
+    Route::get('/midware2/{key}', [midController::class, 'DemoAction2']);
+    Route::get('/midware3/{key}', [midController::class, 'DemoAction3']);
+    Route::get('/midware4/{key}', [midController::class, 'DemoAction4']);
+
+
+});
+
+//viewController
+Route::get('/view1', [viewController::class, 'sum']);
 
 
 

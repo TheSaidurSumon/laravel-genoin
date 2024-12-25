@@ -15,16 +15,16 @@ class DemoMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $key = $request->header('API-KEY');
+        $key = $request->key;
 
         if($key == "123"){
             return $next($request);
         }else{
-            //return response()->json('unauthorized', 401);
+            return response()->json('unauthorized', 401);
 
             //if redirect to another paage
 
-            return redirect("/midware2");
+           // return redirect("/midware2");
         }   
     }  
 }

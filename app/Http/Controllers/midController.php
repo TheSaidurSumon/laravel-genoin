@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class midController extends Controller
 {
     //
-function DemoAction():string{
+function DemoAction1():string{
     return 'hello';
 }
 function DemoAction2():string{
@@ -21,11 +21,6 @@ function DemoAction3():string{
 function DemoAction4():string{
         return 'hello4';
         }
-
-
-function DemoAction5():string{
-            return 'hello5';
-    }
 
 
 }
